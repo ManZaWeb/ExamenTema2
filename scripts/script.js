@@ -21,6 +21,7 @@ const showSaldo = document.getElementById("saldo")
 depositarBtn.addEventListener("click", depositar)
 retirarBtn.addEventListener("click", retirar)
 transferirBtn.addEventListener("click", transferir)
+cambiarBtn.addEventListener("click", cambiar)
 salirBtn.addEventListener("click", salir)
 
 
@@ -54,10 +55,11 @@ function depositar(){
         let monto = parseFloat(prompt("Ingrese la cantidad a transferir"))
         let cuenta = prompt("Ingrese la cuenta destino")
         
-        if(isNaN(monto) || monto === 0 || cuenta === 0){
+        if(isNaN(monto) || monto === 0 || !validarCuenta(cuenta)){
             alert("Cantidad invalida")
         }else{
             saldo -= monto.toFixed(2)
+            showSaldo.innerText = saldo.toFixed(2)
             alert(`Ha transferido ${monto} € a la cuenta ${cuenta}`)
             
         }
@@ -81,14 +83,28 @@ function depositar(){
             window.location.href = "./templates/block.html"
             
         }
+
     }
 
     function mostrarSaldo(){
         showSaldo.innerText = saldo
     }
 
-    function validarCuenta(){
+    function cambiar(){
+       let pin = prompt("Si quiere cambiar la contraseña, introduzca la contraseña actual")
+        if( pin !== PIN_CORRECTO){
+            alert("Contraseña Incorrecta")
+        }else(
+            PIN_CORRECTO = prompt("Introduzca su nueva contraseña")            
+        )
         
     }
+
+    function validarCuenta(cuenta){
+        cuenta(espReg.test)
+    }
+
+    let espReg = /^(ES\d{22})$/
+    
     login()
     mostrarSaldo()
