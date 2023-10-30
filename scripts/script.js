@@ -25,82 +25,82 @@ cambiarBtn.addEventListener("click", cambiar)
 salirBtn.addEventListener("click", salir)
 
 
-function depositar(){
+function depositar() {
     let monto = parseFloat(prompt("Ingrese la cantidad a depositar"))
-    if(isNaN(monto) || monto === 0){
+    if (isNaN(monto) || monto === 0) {
         alert("Cantidad invalida")
-    }else{
+    } else {
         saldo += monto
         showSaldo.innerText = saldo.toFixed(2)
         alert(`Ha depositado ${monto} €`)
     }
     mostrarSaldo()
-    }
+}
 
-    function retirar(){
-        let monto = parseFloat(prompt("Ingrese la cantidad a retirar"))
-        if(isNaN(monto) || monto === 0 || monto > saldo){
-            alert("Cantidad invalida")
-        }else{
-            saldo -= monto
-            showSaldo.innerText = saldo.toFixed(2)
-            alert(`Ha retirado ${monto} €`)
-           
-        }
-        mostrarSaldo()
-        }
-
-    function transferir(){
-        
-        let espReg = /^(ES\d{22})$/
-        let monto = parseFloat(prompt("Ingrese la cantidad a transferir"))
-        let cuenta = prompt("Ingrese la cuenta destino")
-        
-        if(isNaN(monto) || monto === 0 || espReg.test(cuenta) == false){
-            alert("Cantidad o cuenta invalida")
-        }else{
-            saldo -= monto.toFixed(2)
-            showSaldo.innerText = saldo.toFixed(2)
-            alert(`Ha transferido ${monto} € a la cuenta ${cuenta}`)
-            
-        }
-        mostrarSaldo()
-    }
-
-    function salir(){
-        
-        window.location.href = "./templates/exit.html"
-    }
-
-    function login(){
-        let pin = prompt("Introduzca su pin")
-        while(pin !== PIN_CORRECTO && chances > 1){
-            chances --
-            alert(`PIN INCORRECTO. ${chances} intentos restantes`)
-            let pin = prompt("Introduzca su pin")
-        }if(pin === PIN_CORRECTO){
-            alert("Acceso Permitido")
-        }else{
-            window.location.href = "./templates/block.html"
-            
-        }
+function retirar() {
+    let monto = parseFloat(prompt("Ingrese la cantidad a retirar"))
+    if (isNaN(monto) || monto === 0 || monto > saldo) {
+        alert("Cantidad invalida")
+    } else {
+        saldo -= monto
+        showSaldo.innerText = saldo.toFixed(2)
+        alert(`Ha retirado ${monto} €`)
 
     }
-
-    function mostrarSaldo(){
-        showSaldo.innerText = saldo
-    }
-
-    function cambiar(){
-       let pin = prompt("Si quiere cambiar la contraseña, introduzca la contraseña actual")
-        if( pin !== PIN_CORRECTO){
-            alert("Contraseña Incorrecta")
-        }else(
-            PIN_CORRECTO = prompt("Introduzca su nueva contraseña")            
-        )
-        
-    }
-   
-
-    login()
     mostrarSaldo()
+}
+
+function transferir() {
+
+    let espReg = /^(ES\d{22})$/
+    let monto = parseFloat(prompt("Ingrese la cantidad a transferir"))
+    let cuenta = prompt("Ingrese la cuenta destino")
+
+    if (isNaN(monto) || monto === 0 || espReg.test(cuenta) == false) {
+        alert("Cantidad o cuenta invalida")
+    } else {
+        saldo -= monto.toFixed(2)
+        showSaldo.innerText = saldo.toFixed(2)
+        alert(`Ha transferido ${monto} € a la cuenta ${cuenta}`)
+
+    }
+    mostrarSaldo()
+}
+
+function salir() {
+
+    window.location.href = "./templates/exit.html"
+}
+
+function login() {
+    let pin = prompt("Introduzca su pin")
+    while (pin !== PIN_CORRECTO && chances > 1) {
+        chances--
+        alert(`PIN INCORRECTO. ${chances} intentos restantes`)
+        let pin = prompt("Introduzca su pin")
+    } if (pin === PIN_CORRECTO) {
+        alert("Acceso Permitido")
+    } else {
+        window.location.href = "./templates/block.html"
+
+    }
+
+}
+
+function mostrarSaldo() {
+    showSaldo.innerText = saldo
+}
+
+function cambiar() {
+    let pin = prompt("Si quiere cambiar la contraseña, introduzca la contraseña actual")
+    if (pin !== PIN_CORRECTO) {
+        alert("Contraseña Incorrecta")
+    } else (
+        PIN_CORRECTO = prompt("Introduzca su nueva contraseña")
+    )
+
+}
+
+
+login()
+mostrarSaldo()
