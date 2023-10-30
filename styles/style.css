@@ -4,6 +4,7 @@
 }
 
 body{
+    /**Degradado*/
     background-color: aquamarine;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
@@ -14,9 +15,12 @@ body{
 .cajero-main{
     padding: 5vh;
     margin: 0 auto;
+    margin-top: 5vh;
     background-color: #fff;
     width: 75vh;
     max-width: 100vh;
+    border-radius: 5px;
+    /**shadow-box:*/
 }
 
 .cajero-main li{
@@ -25,6 +29,12 @@ body{
     border: solid 1px;
     border-radius: 5px;
     margin-top: 1vh;
+    background-color: grey;
+    
+}
+.cajero-main a{
+    text-decoration: none;
+    color: #fff;
 }
 
 .cajero-main h1{
