@@ -88,7 +88,7 @@ function login() {
 }
 
 function mostrarSaldo() {
-    showSaldo.innerText = saldo
+    showSaldo.innerText = saldo + "€"
 }
 
 function cambiar() {
