@@ -86,5 +86,9 @@ function depositar(){
     function mostrarSaldo(){
         showSaldo.innerText = saldo
     }
+
+    function validarCuenta(){
+        
+    }
     login()
     mostrarSaldo()
