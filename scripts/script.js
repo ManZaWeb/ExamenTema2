@@ -1,5 +1,5 @@
 //Autor: MArio ALfonso Nuñez (DAW)
-//GitHub:
+//GitHub: https://github.com/ManZaWeb/examenTema2.git
 
 //Variables
 const PIN_CORRECTO = "6666"
