@@ -47,6 +47,11 @@ body{
     color: #fff;
 }
 
+.cajero-main a:hover {
+    color: red;
+  }
+
+
 .cajero-main h1{
     font-family: DancingScript;
     font-size: 5vh;

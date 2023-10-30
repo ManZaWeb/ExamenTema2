@@ -57,7 +57,7 @@ function depositar(){
         let cuenta = prompt("Ingrese la cuenta destino")
         
         if(isNaN(monto) || monto === 0 || espReg.test(cuenta) == false){
-            alert("Cantidad invalida")
+            alert("Cantidad o cuenta invalida")
         }else{
             saldo -= monto.toFixed(2)
             showSaldo.innerText = saldo.toFixed(2)
