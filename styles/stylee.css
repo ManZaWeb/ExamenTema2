@@ -11,7 +11,7 @@
 
 body{
     /**Degradado*/
-    background-color: aquamarine;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(176,229,208,1) 42%, rgba(92,202,238,0.41) 93.6% );
     font-family: DancingScript, Arial, Helvetica, sans-serif;
     text-align: center;
     align-items: center;
@@ -19,6 +19,7 @@ body{
 }
 
 .main{
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     padding: 5vh;
     margin: 0 auto;
     margin-top: 5vh;

@@ -52,10 +52,11 @@ function depositar(){
 
     function transferir(){
         
+        let espReg = /^(ES\d{22})$/
         let monto = parseFloat(prompt("Ingrese la cantidad a transferir"))
         let cuenta = prompt("Ingrese la cuenta destino")
         
-        if(isNaN(monto) || monto === 0 || !validarCuenta(cuenta)){
+        if(isNaN(monto) || monto === 0 || espReg.test(cuenta) == false){
             alert("Cantidad invalida")
         }else{
             saldo -= monto.toFixed(2)
@@ -99,12 +100,7 @@ function depositar(){
         )
         
     }
+   
 
-    function validarCuenta(cuenta){
-        cuenta(espReg.test)
-    }
-
-    let espReg = /^(ES\d{22})$/
-    
     login()
     mostrarSaldo()
