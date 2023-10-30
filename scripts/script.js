@@ -4,7 +4,7 @@
 //Variables
 const PIN_CORRECTO = "6666"
 let chances = 3
-let saldo = "10000"
+let saldo = 10000
 
 
 //Enlazamos con el template
@@ -17,27 +17,23 @@ const salirBtn = document.getElementById("exit")
 const showSaldo = document.getElementById("saldo")
 
 
+//Eventos
 depositarBtn.addEventListener("click", depositar)
 retirarBtn.addEventListener("click", retirar)
 transferirBtn.addEventListener("click", transferir)
-salirBtn.addEventListener("click", salir())
-addEventListener("load", login)
+salirBtn.addEventListener("click", salir)
 
-
-
-
-function mostrarSaldo(){
-    showSaldo.innerText = saldo
-}
 
 function depositar(){
     let monto = parseFloat(prompt("Ingrese la cantidad a depositar"))
     if(isNaN(monto) || monto === 0){
         alert("Cantidad invalida")
     }else{
-        saldo += monto.toFixed(2)
-        mostrarSaldo()
+        saldo += monto
+        showSaldo.innerText = saldo.toFixed(2)
+        alert(`Ha depositado ${monto} €`)
     }
+    mostrarSaldo()
     }
 
     function retirar(){
@@ -45,38 +41,50 @@ function depositar(){
         if(isNaN(monto) || monto === 0 || monto > saldo){
             alert("Cantidad invalida")
         }else{
-            saldo -= monto.toFixed(2)
-            mostrarSaldo()
+            saldo -= monto
+            showSaldo.innerText = saldo.toFixed(2)
+            alert(`Ha retirado ${monto} €`)
+           
         }
+        mostrarSaldo()
         }
 
     function transferir(){
-        let monto = parseFloat(prompt("Ingrese la cantidad a retirar"))
-        let cuenta = promt("Ingrese la cuenta destino")
-        if(isNaN(monto) || monto === 0){
+        
+        let monto = parseFloat(prompt("Ingrese la cantidad a transferir"))
+        let cuenta = prompt("Ingrese la cuenta destino")
+        
+        if(isNaN(monto) || monto === 0 || cuenta === 0){
             alert("Cantidad invalida")
         }else{
             saldo -= monto.toFixed(2)
-            mostrarSaldo()
+            alert(`Ha transferido ${monto} € a la cuenta ${cuenta}`)
+            
         }
-
+        mostrarSaldo()
     }
 
     function salir(){
-        window.location.href = /template/exit.html
-
+        
+        window.location.href = "./templates/exit.html"
     }
 
     function login(){
         let pin = prompt("Introduzca su pin")
-        while(pin !== PIN_CORRECTO || chances > 1){
+        while(pin !== PIN_CORRECTO && chances > 1){
             chances --
             alert(`PIN INCORRECTO. ${chances} intentos restantes`)
+            let pin = prompt("Introduzca su pin")
         }if(pin === PIN_CORRECTO){
             alert("Acceso Permitido")
         }else{
-            window.location.href = /template/block.html
+            window.location.href = "./templates/block.html"
+            
         }
     }
 
+    function mostrarSaldo(){
+        showSaldo.innerText = saldo
+    }
+    login()
     mostrarSaldo()
